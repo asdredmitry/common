@@ -5,6 +5,17 @@
 using namespace std;
 const int max1 = 1200;
 const int inf = INT_MAX;
+void printFrom(char ** from, int n, int m)
+{
+    cout << endl;
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = 0; j < m; j++)
+            cout << from[i][j] << " ";
+        cout << endl;
+    }
+    cout << endl;
+}
 void bfs(char ** graph, bool ** used, char ** from, int ** weight, int n, int m)
 {
     deque < pair<int, int> > d;
@@ -14,6 +25,7 @@ void bfs(char ** graph, bool ** used, char ** from, int ** weight, int n, int m)
     weight[n - 1][m - 1] = 0;
     while (!d.empty())
     {
+        printFrom(from, n, m);
         cout << d.size() << " " << endl;
         pair <int, int> cur = d.front();
         d.pop_front();
